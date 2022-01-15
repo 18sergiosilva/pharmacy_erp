@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+        <div class="row flex-grow">
+            <div class="col-12 grid-margin">
+                <div class="card" style="background-color: #ffffff;">
+                    <div class="card-body">
+                        <h4 class="card-title">Ingresars</h4>
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Usuario</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    placeholder="Ingrese su usuario" name="correo">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Contraseña</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Contraseña"  name="contra">
+                            </div>
+                            <button type="submit" class="btn btn-success mr-2" (click)="entrar()">Entrar</button>
+                            <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-8"></div>
+                        <div class="col">
+                            <div *ngIf="incorrecto">
+                                <button class="btn btn-light" class="btn btn-danger ml-4 mb-5" disabled>Contraseña Incorrecta</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+

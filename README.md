@@ -1,1 +1,2 @@
-# pharmacy_erp
+# SEMINARIO1_GRUPO1_PROYECTO
+

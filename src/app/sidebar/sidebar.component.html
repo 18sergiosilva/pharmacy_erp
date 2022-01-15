@@ -1,0 +1,14 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+
+    <li class="nav-item" *ngFor="let indice of indices">
+      <a class="nav-link" routerLink="{{indice.url}}" routerLinkActive="active">
+        <i class="menu-icon mdi {{indice.icon}}"></i>
+        <span class="menu-title">{{indice.title}}</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+

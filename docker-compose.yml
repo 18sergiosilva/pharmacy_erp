@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  servicio1:
+    container_name: container_crearProducto
+    build: ./backendCrearProducto
+    image: s1_crearproducto
+    ports: 
+      - 3000:3000
+    depends_on:
+      - db
+  servicio2:
+    container_name: container_eliminarProducto
+    build: ./backendEliminarProducto
+    image: s2_eliminarproducto
+    ports: 
+      - 3001:3001
+    depends_on:
+      - db
+  servicio3:
+    container_name: container_verProducto
+    build: ./backendVerProducto
+    image: s3_verproducto
+    ports: 
+      - 3002:3002
+    depends_on:
+      - db
+  servicio4:
+    container_name: container_actualizarProducto
+    build: ./backendActualizarProducto
+    image: s4_actualizarproducto
+    ports: 
+      - 3003:3003
+    depends_on:
+      - db
+  servicio5:
+    container_name: container_backendOrdenes
+    build: ./backendOrdenes
+    image: s5_backendordenes
+    ports: 
+      - 3004:3000
+    depends_on:
+      - db
+  servicio6:
+    container_name: container_backendUsuarios
+    build: ./backendUsuarios
+    image: s6_backendusuarios
+    ports: 
+      - 3005:3000
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: mongo
+    restart: always
+    command: --auth
+    ports:
+      - 27017:27017
+    env_file:
+      - ./db/config.env
+    volumes:
+      - ./db/db:/data/db
+      - ./db/init_db:/docker-entrypoint-initdb.d
+  #frontend:
+  #  container_name: frontend
+  #  build: ./frontend
+  #  image: s7_frontend
+  #  ports:
+  #    - 80:80

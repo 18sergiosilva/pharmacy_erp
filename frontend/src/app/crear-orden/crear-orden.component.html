@@ -1,0 +1,158 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<!-- Formulario de nuevo Ususario-->
+<div class="col-3"></div>
+<div class="col"></div>
+<div class="col-3"></div>
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <form class="form-sample">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group row">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary mr-2 col-5" (click)="domicilio()"><i
+                                    class="mdi mdi-30px mdi-moped"></i>Entrega a domicilio</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <button type="button" class="btn btn-primary mr-2 col-7" (click)="tienda()"><i
+                                    class="mdi mdi-30px mdi-store"></i>Recoger en tienda</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="activar == 1">
+    <div class="col-3"></div>
+    <div class="col">
+        <div class="row flex-grow">
+            <div class="col-12 grid-margin">
+                <div class="card" style="background-color: #d8e8f5;">
+                    <div class="card-body">
+                        <h4 class="card-title">Orden</h4>
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre"
+                                    [(ngModel)]="nombre" name="nombre1">
+                            </div>
+                            <div class="form-group">
+                                <label for="examplenit1">NIT</label>
+                                <input type="number" class="form-control" id="examplenit1" placeholder="nit"
+                                    [(ngModel)]="nit" name="nit">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampledireccion1">Direccion</label>
+                                <input type="text" class="form-control" id="exampledireccion1"
+                                    placeholder="direccion" [(ngModel)]="direccion" name="direccionC">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampletelefono1">Telefono</label>
+                                <input type="number" class="form-control" id="exampletelefono1"
+                                    placeholder="telefono" [(ngModel)]="telefono" name="telefono">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<div class="row" *ngIf="activar == 2">
+    <div class="col-3"></div>
+    <div class="col">
+        <div class="row flex-grow">
+            <div class="col-12 grid-margin">
+                <div class="card" style="background-color: #d8e8f5;">
+                    <div class="card-body">
+                        <h4 class="card-title">Orden</h4>
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre"
+                                    [(ngModel)]="nombre" name="nombre1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputnit">NIT</label>
+                                <input type="number" class="form-control" id="examplenit" placeholder="nit"
+                                    [(ngModel)]="nit" name="nit">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputtelefono">Telefono</label>
+                                <input type="number" class="form-control" id="exampletelefono"
+                                    placeholder="telefono" [(ngModel)]="telefono" name="telefono">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+        <div class="row flex-grow">
+            <div class="col-12 grid-margin">
+                <div class="card" style="background-color: #d8e8f5;">
+                    <div class="card-body">
+                        <h4 class="card-title">Productos</h4>
+                        <form class="forms-sample">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-blue">
+                                    <tbody>
+                                        <!-- Repitencia-->
+                                        <tr *ngFor="let producto of productos">
+                                            <td name="nombreproducto">
+                                                {{producto.nombre}}
+                                            </td>
+                                            <td>
+                                                {{producto.cantidad}}
+                                            </td>
+                                            <td name="precioproducto">
+                                                Q.{{producto.precio * producto.cantidad}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                Total
+                                            </td>
+                                            <td name="totalCarrito">
+                                                {{total | number:'1.2-2'}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-success mr-2" (click)="pedido()">Enviar Pedido</button>
+                        <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
